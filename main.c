@@ -3,17 +3,20 @@
 
 #define NUM_ELEMENTS 5
 
-int multiplyNumbers(int x, int y) {
-    int product = x * y;
+void foo(int *a) {
+    (*a) = (*a) + 1; 
 }
 
 int main(void) {
-    int a, b = 5; //uninitvar, legacyUninitvar
-    int result = multiplyNumbers(a, b);
+    int a = 0; 
+    int b = 0; 
 
-    int arr[NUM_ELEMENTS];
-    for(int i = 0; i <= NUM_ELEMENTS; i++) { //arrayIndexOutOfBounds
-        arr[i] = i;
+    while (1) {
+        foo(&a); 
+
+        if (a > 5) {
+            b = 1;
+        }
     }
 
     return 0;
